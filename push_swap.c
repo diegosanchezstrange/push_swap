@@ -6,7 +6,7 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 15:06:02 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/09 19:21:40 by dsanchez         ###   ########.fr       */
+/*   Updated: 2021/10/09 21:26:33 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,37 +34,69 @@ int	*ft_intdup(int i)
 	return (res);
 }
 
+int	ft_is_repeated(t_list *stack, int param)
+{
+	while (stack)
+	{
+		if (*(int *)stack->content == param)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
+int	ft_check_params(int argc, char **argv, t_list **stack_a)
+{
+	char	**params;
+	int		i;
+	int		j;
+
+	i = 1;
+	j = 0;
+	if (argc < 2)
+		return (0);
+	while (i < argc)
+	{
+		params = ft_split(argv[i], ' ');
+		while (*params)
+		{
+			if (!ft_aredigits(*params))
+				return (0);
+			if (ft_is_repeated(*stack_a, ft_atoi(*params)))
+				return (0);
+			ft_lstadd_back(stack_a, ft_lstnew(ft_intdup(ft_atoi(*params))));
+			params++;
+			j++;
+		}
+		i++;
+	}
+	return (j);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	**stack_a;
 	t_list	**stack_b;
 	int		i;
 
-	if (argc < 2)
-		return (1);
 	stack_a = malloc(sizeof(void *));
 	stack_b = malloc(sizeof(t_list));
-	i = 1;
 	if (!stack_a || !stack_b)
 		return (2);
 	*stack_a = NULL;
 	*stack_b = NULL;
-	while (i < argc)
+	i = ft_check_params(argc, argv, stack_a);
+	if (i == 0)
 	{
-		if (!ft_aredigits(argv[i]))
-		{
-			write(1, "Error\n", 6);
-			return (3);
-		}
-		ft_lstadd_back(stack_a, ft_lstnew(ft_intdup(ft_atoi(argv[i]))));
-		i++;
+		write(1, "Error\n", 6);
+		return (0);
 	}
-	if (argc == 4)
+	if (i == 3)
 		ft_sort_3(stack_a);
-	else if (argc == 6 || argc == 5)
+	else if (i == 5 || i == 4)
 		ft_sort_5(stack_a, stack_b);
-	else if (argc > 6 && argc < 101)
-		ft_sort_100(stack_a, stack_b);
+	//else if (argc > 6 && argc < 101)
+		//ft_sort_100(stack_a, stack_b);
 	printf("--------------------\n");
 	while (*stack_a)
 	{
