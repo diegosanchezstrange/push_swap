@@ -6,7 +6,7 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 17:06:22 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/09 19:20:08 by dsanchez         ###   ########.fr       */
+/*   Updated: 2021/10/10 18:29:48 by diego            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,9 @@ int	ft_get_min(t_list *stack, int *pos)
 
 void	ft_push_min(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*stack_cpy;
 	int		min;
 	int		pos;
 
-	stack_cpy = *stack_a;
 	min = ft_get_min(*stack_a, &pos);
 	while (*(int *)(*stack_a)->content != min)
 	{
