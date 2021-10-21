@@ -6,23 +6,37 @@
 /*   By: diego </var/mail/diego>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:06:04 by diego             #+#    #+#             */
-/*   Updated: 2021/10/18 13:33:35 by diego            ###   ########.fr       */
+/*   Updated: 2021/10/21 18:08:03 by diego            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_aredigits(char *str)
+int	ft_aredigits(char *nptr)
 {
-	if (*str == '-')
-		str++;
-	while (*str)
+	int	sign;
+	unsigned int	res;
+	int	i;
+
+	sign = 1;
+	res = 0;
+	i = 0;
+	if (nptr[i] == '-')
 	{
-		if (!ft_isdigit(*str))
-			return (0);
-		str++;
+		sign = -1;
+		i++;
 	}
-	return (1);
+	while (ft_isdigit(nptr[i]))
+	{
+		res = (res * 10) + (nptr[i] - 48);
+		if ((res > 2147483647 && sign == 1) 
+			|| (res > 2147483648 && sign == -1))
+				return (0);
+		i++;
+	}
+	if (nptr[i])
+		return (0);
+	return (res * sign);
 }
 
 int	ft_is_repeated(t_list *stack, int param)
