@@ -6,7 +6,7 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 16:21:23 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/21 19:57:56 by dsanchez         ###   ########.fr       */
+/*   Updated: 2021/10/21 21:29:20 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_rotate(t_list **stack)
 {
 	t_list	*first;
 
-	if (*stack == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
 	first = *stack;
 	*stack = (*stack)->next;

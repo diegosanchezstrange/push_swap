@@ -6,14 +6,13 @@
 /*   By: diego </var/mail/diego>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 13:11:09 by diego             #+#    #+#             */
-/*   Updated: 2021/10/18 13:12:00 by diego            ###   ########.fr       */
+/*   Updated: 2021/10/21 21:42:26 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_position	ft_put_next(t_list *stack_a, int max, int size)
-{
+t_position	ft_put_next(t_list *stack_a, int max, int size) {
 	t_position	first;
 	t_position	last;
 	int			act;
@@ -67,9 +66,9 @@ void	ft_rpb(t_list **s_a, t_list **s_b, int pos, void (*f)(t_list **))
 	ft_pb(s_a, s_b);
 }
 
-void	ft_rpa(t_list **s_a, t_list **s_b, int pos, void (*f)(t_list **))
+void	ft_rpa(t_list **s_a, t_list **s_b, t_position pos, void (*f)(t_list **))
 {
-	while (pos--)
+	while (pos.pos--)
 		(*f)(s_b);
 	ft_pa(s_a, s_b);
 }
@@ -94,6 +93,8 @@ void	ft_push_b(t_list **stack_a, t_list **stack_b, int step)
 				ft_rpb(stack_a, stack_b, pos.pos, ft_rra);
 			else
 				ft_rpb(stack_a, stack_b, ft_lstsize(*stack_a) - pos.pos, ft_ra);
+			if (*(int *)(*stack_b)->content > max - (step / 2))
+				ft_rb(stack_b);
 			i++;
 		}
 	}

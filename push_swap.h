@@ -6,7 +6,7 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 15:06:07 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/18 13:15:19 by diego            ###   ########.fr       */
+/*   Updated: 2021/10/21 21:33:34 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_list		**ft_lstmap_nums(t_list **stack);
 t_position	ft_put_next(t_list *stack_a, int max, int size);
 t_position	ft_get_max(t_list *stack_a);
 void		ft_rpb(t_list **s_a, t_list **s_b, int pos, void (*f)(t_list **));
-void		ft_rpa(t_list **s_a, t_list **s_b, int pos, void (*f)(t_list **));
+void		ft_rpa(t_list **s_a, t_list **s_b, t_position pos, void (*f)(t_list **));
 void		ft_push_b(t_list **stack_a, t_list **stack_b, int step);
 
 void		ft_sort_3(t_list **stack_a);

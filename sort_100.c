@@ -6,7 +6,7 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 19:22:01 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/21 19:51:46 by dsanchez         ###   ########.fr       */
+/*   Updated: 2021/10/21 21:37:57 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,12 @@ void	ft_sort_100(t_list **stack_a, t_list **stack_b, int step)
 	{
 		max = ft_get_max(*stack_b);
 		if (max.pos < ft_lstsize(*stack_b) / 2)
-			ft_rpa(new_a, stack_b, max.pos, ft_rrb);
+			ft_rpa(new_a, stack_b, max, ft_rrb);
 		else
-			ft_rpa(new_a, stack_b, ft_lstsize(*stack_b) - max.pos, ft_rb);
+		{
+			max.pos = ft_lstsize(*stack_b) - max.pos;
+			ft_rpa(new_a, stack_b, max, ft_rb);
+		}
 	}
 	ft_lstclear(new_a, free);
 	free(new_a);
