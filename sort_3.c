@@ -6,7 +6,7 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 17:06:22 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/10 18:29:48 by diego            ###   ########.fr       */
+/*   Updated: 2021/10/21 19:21:48 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	ft_push_min(t_list **stack_a, t_list **stack_b)
 
 void	ft_sort_5(t_list **stack_a, t_list **stack_b)
 {
+	if (ft_is_sorted(*stack_a))
+		return ;
 	ft_push_min(stack_a, stack_b);
 	if (ft_lstsize(*stack_a) == 4)
 		ft_push_min(stack_a, stack_b);

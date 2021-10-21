@@ -6,7 +6,7 @@
 /*   By: diego </var/mail/diego>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:06:04 by diego             #+#    #+#             */
-/*   Updated: 2021/10/21 18:08:03 by diego            ###   ########.fr       */
+/*   Updated: 2021/10/21 19:45:02 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_aredigits(char *nptr)
 				return (0);
 		i++;
 	}
-	if (nptr[i])
+	if (nptr[i] != 0 && !ft_isdigit(nptr[i]))
 		return (0);
 	return (res * sign);
 }
@@ -67,7 +67,7 @@ int	ft_fill_stack(t_list **stack_a, char **params)
 	j = 0;
 	while (*params)
 	{
-		if (!ft_aredigits(*params))
+		if (!ft_aredigits(*params) && ft_atoi(*params) != 0)
 			return (0);
 		if (ft_is_repeated(*stack_a, ft_atoi(*params)))
 			return (0);
@@ -88,8 +88,6 @@ int	ft_check_params(int argc, char **argv, t_list **stack_a)
 	i = 1;
 	c = 0;
 	r = 0;
-	if (argc < 2)
-		return (0);
 	while (i < argc)
 	{
 		params = ft_split(argv[i], ' ');

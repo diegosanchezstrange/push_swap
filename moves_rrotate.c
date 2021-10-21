@@ -6,7 +6,7 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 16:43:31 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/09 16:57:41 by dsanchez         ###   ########.fr       */
+/*   Updated: 2021/10/21 19:58:15 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_rra(t_list **stack_a)
 void	ft_rrb(t_list **stack_b)
 {
 	ft_rrotate(stack_b);
-	write(1, "rra\n", 4);
+	write(1, "rrb\n", 4);
 }
 
 void	ft_rrr(t_list **stack_a, t_list **stack_b)

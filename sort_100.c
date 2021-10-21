@@ -6,7 +6,7 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 19:22:01 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/18 13:15:47 by diego            ###   ########.fr       */
+/*   Updated: 2021/10/21 19:51:46 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_sort_100(t_list **stack_a, t_list **stack_b, int step)
 	t_list		**new_a;
 	t_position	max;
 
+	if (ft_is_sorted(*stack_a))
+		return ;
 	new_a = ft_lstmap_nums(stack_a);
 	ft_push_b(new_a, stack_b, step);
 	while (ft_lstsize(*stack_b) > 0)

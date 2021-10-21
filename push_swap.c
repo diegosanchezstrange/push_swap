@@ -6,7 +6,7 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 15:06:02 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/18 13:26:55 by diego            ###   ########.fr       */
+/*   Updated: 2021/10/21 19:54:57 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 
 	stack_a = ft_calloc(1, sizeof(void *));
 	stack_b = ft_calloc(1, sizeof(void *));
-	if (!stack_a || !stack_b)
+	if (!stack_a || !stack_b || argc == 1)
 		return (1);
 	i = ft_check_params(argc, argv, stack_a);
 	if (!i)
@@ -43,9 +43,9 @@ int	main(int argc, char **argv)
 		ft_sort_3(stack_a);
 	else if (i == 5 || i == 4)
 		ft_sort_5(stack_a, stack_b);
-	else if (i > 5 && i < 101)
+	else if (i > 5 || i < 101)
 		ft_sort_100(stack_a, stack_b, 20);
-	else if (i > 499)
+	else if (i >= 101)
 		ft_sort_100(stack_a, stack_b, 45);
 	ft_free_stacks(stack_a, stack_b);
 	return (0);
