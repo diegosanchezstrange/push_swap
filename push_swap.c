@@ -6,7 +6,7 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 15:06:02 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/21 19:54:57 by dsanchez         ###   ########.fr       */
+/*   Updated: 2021/10/21 20:10:55 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ int	main(int argc, char **argv)
 		ft_sort_3(stack_a);
 	else if (i == 5 || i == 4)
 		ft_sort_5(stack_a, stack_b);
-	else if (i > 5 || i < 101)
-		ft_sort_100(stack_a, stack_b, 20);
-	else if (i >= 101)
-		ft_sort_100(stack_a, stack_b, 45);
+	else if (i > 5)
+		ft_sort_100(stack_a, stack_b, (ft_lstsize(*stack_a) / 13 ) + 22);
 	ft_free_stacks(stack_a, stack_b);
 	return (0);
 }
