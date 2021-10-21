@@ -6,14 +6,13 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 15:06:02 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/13 12:31:05 by diego            ###   ########.fr       */
+/*   Updated: 2021/10/18 13:26:55 by diego            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 #include <unistd.h>
-
 
 void	ft_free_stacks(t_list **stack_a, t_list **stack_b)
 {
@@ -29,18 +28,16 @@ int	main(int argc, char **argv)
 	t_list	**stack_b;
 	int		i;
 
-	stack_a = malloc(sizeof(void *));
-	stack_b = malloc(sizeof(void *));
+	stack_a = ft_calloc(1, sizeof(void *));
+	stack_b = ft_calloc(1, sizeof(void *));
 	if (!stack_a || !stack_b)
-		return (2);
-	*stack_a = NULL;
-	*stack_b = NULL;
+		return (1);
 	i = ft_check_params(argc, argv, stack_a);
 	if (!i)
 	{
 		ft_free_stacks(stack_a, stack_b);
 		write(1, "Error\n", 6);
-		return (0);
+		return (2);
 	}
 	if (i == 3)
 		ft_sort_3(stack_a);

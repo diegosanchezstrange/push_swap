@@ -6,7 +6,7 @@
 /*   By: diego </var/mail/diego>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:06:04 by diego             #+#    #+#             */
-/*   Updated: 2021/10/13 12:31:42 by diego            ###   ########.fr       */
+/*   Updated: 2021/10/18 13:33:35 by diego            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,6 @@ int	ft_aredigits(char *str)
 		str++;
 	}
 	return (1);
-}
-
-int	*ft_intdup(int i)
-{
-	int	*res;
-
-	res = malloc(sizeof(int));
-	*res = i;
-	return (res);
 }
 
 int	ft_is_repeated(t_list *stack, int param)
