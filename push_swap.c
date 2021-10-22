@@ -6,7 +6,7 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 15:06:02 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/21 20:10:55 by dsanchez         ###   ########.fr       */
+/*   Updated: 2021/10/22 17:29:27 by diego            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ int	main(int argc, char **argv)
 	t_list	**stack_b;
 	int		i;
 
+	if (argc == 1)
+		return (0);
 	stack_a = ft_calloc(1, sizeof(void *));
 	stack_b = ft_calloc(1, sizeof(void *));
-	if (!stack_a || !stack_b || argc == 1)
+	if (!stack_a || !stack_b)
 		return (1);
 	i = ft_check_params(argc, argv, stack_a);
 	if (!i)
