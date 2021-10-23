@@ -6,7 +6,7 @@
 /*   By: diego </var/mail/diego>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:06:04 by diego             #+#    #+#             */
-/*   Updated: 2021/10/21 19:45:02 by dsanchez         ###   ########.fr       */
+/*   Updated: 2021/10/23 16:01:01 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_aredigits(char *nptr)
 {
-	int	sign;
+	int				sign;
 	unsigned int	res;
-	int	i;
+	int				i;
 
 	sign = 1;
 	res = 0;
@@ -29,9 +29,9 @@ int	ft_aredigits(char *nptr)
 	while (ft_isdigit(nptr[i]))
 	{
 		res = (res * 10) + (nptr[i] - 48);
-		if ((res > 2147483647 && sign == 1) 
+		if ((res > 2147483647 && sign == 1)
 			|| (res > 2147483648 && sign == -1))
-				return (0);
+			return (0);
 		i++;
 	}
 	if (nptr[i] != 0 && !ft_isdigit(nptr[i]))

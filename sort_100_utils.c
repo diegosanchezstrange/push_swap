@@ -6,13 +6,14 @@
 /*   By: diego </var/mail/diego>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 13:11:09 by diego             #+#    #+#             */
-/*   Updated: 2021/10/22 17:25:49 by diego            ###   ########.fr       */
+/*   Updated: 2021/10/23 16:00:07 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_position	ft_put_next(t_list *stack_a, int max, int size) {
+t_position	ft_put_next(t_list *stack_a, int max, int size)
+{
 	t_position	first;
 	t_position	last;
 	int			act;
@@ -66,24 +67,11 @@ void	ft_rpb(t_list **s_a, t_list **s_b, int pos, void (*f)(t_list **))
 	ft_pb(s_a, s_b);
 }
 
-void	ft_rpa(t_list **s_a, t_list **s_b, t_position pos, void (*f)(t_list **))
+void	ft_rpa(t_list **s_a, t_list **s_b, int pos, void (*f)(t_list **))
 {
-	int	found;
-
-	found = 0;
-	while (pos.pos--)
-	{
-		if (*(int *)(*s_b)->content == pos.num - 1)
-		{
-			found = 1;
-			ft_pa(s_a, s_b);
-		}
-		else
-			(*f)(s_b);
-	}
+	while (pos--)
+		(*f)(s_b);
 	ft_pa(s_a, s_b);
-	if (found)
-		ft_sa(s_a);
 }
 
 void	ft_push_b(t_list **stack_a, t_list **stack_b, int step)
