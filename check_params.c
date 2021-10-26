@@ -6,13 +6,13 @@
 /*   By: diego </var/mail/diego>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:06:04 by diego             #+#    #+#             */
-/*   Updated: 2021/10/23 16:01:01 by dsanchez         ###   ########.fr       */
+/*   Updated: 2021/10/26 20:28:04 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_aredigits(char *nptr)
+int	ft_atoi_check(char *nptr)
 {
 	int				sign;
 	unsigned int	res;
@@ -21,9 +21,10 @@ int	ft_aredigits(char *nptr)
 	sign = 1;
 	res = 0;
 	i = 0;
-	if (nptr[i] == '-')
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		sign = -1;
+		if (nptr[i] == '-')
+			sign = -1;
 		i++;
 	}
 	while (ft_isdigit(nptr[i]))
@@ -34,9 +35,7 @@ int	ft_aredigits(char *nptr)
 			return (0);
 		i++;
 	}
-	if (nptr[i] != 0 && !ft_isdigit(nptr[i]))
-		return (0);
-	return (res * sign);
+	return (1);
 }
 
 int	ft_is_repeated(t_list *stack, int param)
@@ -63,15 +62,25 @@ void	ft_free_split(char **strs)
 int	ft_fill_stack(t_list **stack_a, char **params)
 {
 	int		j;
+	int		i;
+	char	*actual;
 
 	j = 0;
 	while (*params)
 	{
-		if (!ft_aredigits(*params) && ft_atoi(*params) != 0)
+		i = 0;
+		actual = *params;
+		if (actual[0] == '-' || actual[0] == '+')
+			i++;
+		while (actual[i])
+		{
+			if (!ft_isdigit(actual[i]))
+				return (0);
+			i++;
+		}
+		if (ft_is_repeated(*stack_a, ft_atoi(actual)) || !ft_atoi_check(actual))
 			return (0);
-		if (ft_is_repeated(*stack_a, ft_atoi(*params)))
-			return (0);
-		ft_lstadd_back(stack_a, ft_lstnew(ft_intdup(ft_atoi(*params))));
+		ft_lstadd_back(stack_a, ft_lstnew(ft_intdup(ft_atoi(actual))));
 		params++;
 		j++;
 	}
