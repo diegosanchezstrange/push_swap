@@ -6,12 +6,11 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 19:22:01 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/23 15:59:27 by dsanchez         ###   ########.fr       */
+/*   Updated: 2021/10/27 18:32:44 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	ft_sort_100(t_list **stack_a, t_list **stack_b, int step)
 {

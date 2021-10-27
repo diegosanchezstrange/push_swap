@@ -6,12 +6,11 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 15:09:57 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/09 17:57:49 by dsanchez         ###   ########.fr       */
+/*   Updated: 2021/10/27 18:32:00 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	ft_push(t_list **stack_src, t_list **stack_dest)
 {

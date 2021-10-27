@@ -6,12 +6,11 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 17:06:22 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/21 19:21:48 by dsanchez         ###   ########.fr       */
+/*   Updated: 2021/10/27 18:32:28 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	ft_get_min(t_list *stack, int *pos)
 {

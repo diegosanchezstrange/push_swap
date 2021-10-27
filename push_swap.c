@@ -6,12 +6,11 @@
 /*   By: dsanchez <dsanchez@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 15:06:02 by dsanchez          #+#    #+#             */
-/*   Updated: 2021/10/22 17:29:27 by diego            ###   ########.fr       */
+/*   Updated: 2021/10/27 18:32:50 by dsanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 #include <unistd.h>
 
 void	ft_free_stacks(t_list **stack_a, t_list **stack_b)
